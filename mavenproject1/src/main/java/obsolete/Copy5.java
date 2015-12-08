@@ -1,0 +1,1145 @@
+/*
+ * GenericClothes.java
+ *
+ * Created on February 23, 2007, 8:19 AM
+ *
+ * To change this template, choose Tools | Template Manager
+ * and open the template in the editor.
+ */
+
+package obsolete;
+
+import clts.*;
+import draw.Panel;
+import util.Color;
+import util.DFactory;
+import util.GraphicsMap;
+import java.util.ArrayList;
+import java.util.Hashtable;
+import clts.Piece;
+import clts.t.u.a.T0;
+import util.ImageUtilities;
+import util.ColorArray;
+
+/**
+ *
+ * @author doubleD
+ */
+public class Copy5 extends SuperTL
+{
+    int y = -50;
+    int alpha = 0;
+    int count = 0;
+    int increment = 0;
+    int length = 0;
+
+    public Copy5()
+    {
+        super();
+        length = (DFactory.ARRAY_SIZE) / 2;
+        increment = (255 / length) * 3;
+    }
+
+    public Copy5(ColorArray colorSwitch)
+    {
+        super(colorSwitch);
+        length = (DFactory.ARRAY_SIZE) / 2;
+        increment = (255 / length) * 3;
+    }
+
+    public void setStep(int s, int direction, int leftArm, int rightArm,int eye)
+    {
+        step = s;
+
+        count++;
+        if(count > DFactory.ARRAY_SIZE)
+        {
+            count = 0;
+            alpha = 0;
+            y = -50;
+        }
+
+        if(count > (length - 3))
+        {
+            if((count - (length - 3)) < (length / 2))
+            {
+                alpha += increment;
+                if(alpha > 255)
+                    alpha = 255;
+            }
+            else
+            {
+                alpha -= increment;
+                if(alpha < 0)
+                    alpha = 0;
+            }
+
+            if(alpha != 255)
+                y-=4;
+        }
+
+        COLORS.setAlpha(alpha);
+    }
+
+
+    public void paintVeryFront(int offsetX, int offsetY, GraphicsMap g2d)
+    {
+        super.paintVeryFront(offsetX, offsetY, g2d);
+        paintPres(offsetX + 25 + shiftX, y + 125 + shiftY,g2d);
+    }
+
+    public void paintPres(int x, int y, GraphicsMap g2d)
+    {
+
+
+        g2d.setColor(COLORS.get(ImageUtilities.NEG_GREY_7));
+        g2d.fillRect(102 + x, 13 + y, 1, 3);
+        g2d.fillRect(103 + x, 13 + y, 1, 3);
+        g2d.fillRect(22 + x, 14 + y, 4, 1);
+        g2d.fillRect(101 + x, 14 + y, 1, 1);
+        g2d.fillRect(17 + x, 15 + y, 2, 1);
+        g2d.fillRect(27 + x, 15 + y, 3, 1);
+        g2d.fillRect(15 + x, 16 + y, 1, 1);
+        g2d.fillRect(29 + x, 16 + y, 2, 1);
+        g2d.fillRect(13 + x, 17 + y, 1, 1);
+        g2d.fillRect(30 + x, 17 + y, 1, 9);
+        g2d.fillRect(31 + x, 17 + y, 1, 8);
+        g2d.fillRect(12 + x, 18 + y, 1, 1);
+        g2d.fillRect(32 + x, 18 + y, 1, 6);
+        g2d.fillRect(86 + x, 18 + y, 1, 7);
+        g2d.fillRect(87 + x, 18 + y, 1, 1);
+        g2d.fillRect(18 + x, 19 + y, 4, 1);
+        g2d.fillRect(85 + x, 19 + y, 1, 9);
+        g2d.fillRect(19 + x, 20 + y, 1, 10);
+        g2d.fillRect(20 + x, 20 + y, 1, 4);
+        g2d.fillRect(21 + x, 20 + y, 1, 1);
+        g2d.fillRect(33 + x, 20 + y, 1, 2);
+        g2d.fillRect(47 + x, 21 + y, 1, 3);
+        g2d.fillRect(8 + x, 22 + y, 1, 1);
+        g2d.fillRect(18 + x, 22 + y, 1, 10);
+        g2d.fillRect(46 + x, 22 + y, 1, 2);
+        g2d.fillRect(48 + x, 22 + y, 1, 1);
+        g2d.fillRect(84 + x, 22 + y, 1, 10);
+        g2d.fillRect(7 + x, 23 + y, 1, 2);
+        g2d.fillRect(38 + x, 23 + y, 1, 9);
+        g2d.fillRect(39 + x, 23 + y, 1, 7);
+        g2d.fillRect(40 + x, 23 + y, 1, 1);
+        g2d.fillRect(45 + x, 23 + y, 1, 2);
+        g2d.fillRect(54 + x, 23 + y, 5, 1);
+        g2d.fillRect(70 + x, 23 + y, 6, 1);
+        g2d.fillRect(98 + x, 23 + y, 1, 11);
+        g2d.fillRect(99 + x, 23 + y, 1, 7);
+        g2d.fillRect(100 + x, 23 + y, 1, 4);
+        g2d.fillRect(116 + x, 23 + y, 1, 2);
+        g2d.fillRect(117 + x, 23 + y, 1, 2);
+        g2d.fillRect(118 + x, 23 + y, 1, 2);
+        g2d.fillRect(119 + x, 23 + y, 1, 10);
+        g2d.fillRect(120 + x, 23 + y, 1, 6);
+        g2d.fillRect(121 + x, 23 + y, 1, 2);
+        g2d.fillRect(132 + x, 23 + y, 5, 1);
+        g2d.fillRect(29 + x, 24 + y, 1, 3);
+        g2d.fillRect(36 + x, 24 + y, 2, 1);
+        g2d.fillRect(44 + x, 24 + y, 1, 1);
+        g2d.fillRect(52 + x, 24 + y, 1, 1);
+        g2d.fillRect(57 + x, 24 + y, 1, 6);
+        g2d.fillRect(58 + x, 24 + y, 1, 5);
+        g2d.fillRect(59 + x, 24 + y, 1, 3);
+        g2d.fillRect(69 + x, 24 + y, 1, 1);
+        g2d.fillRect(74 + x, 24 + y, 3, 1);
+        g2d.fillRect(80 + x, 24 + y, 4, 1);
+        g2d.fillRect(87 + x, 24 + y, 4, 1);
+        g2d.fillRect(96 + x, 24 + y, 2, 1);
+        g2d.fillRect(114 + x, 24 + y, 2, 1);
+        g2d.fillRect(130 + x, 24 + y, 1, 1);
+        g2d.fillRect(135 + x, 24 + y, 1, 6);
+        g2d.fillRect(136 + x, 24 + y, 1, 5);
+        g2d.fillRect(137 + x, 24 + y, 1, 3);
+        g2d.fillRect(37 + x, 25 + y, 1, 11);
+        g2d.fillRect(43 + x, 25 + y, 1, 1);
+        g2d.fillRect(51 + x, 25 + y, 1, 2);
+        g2d.fillRect(68 + x, 25 + y, 1, 6);
+        g2d.fillRect(75 + x, 25 + y, 2, 1);
+        g2d.fillRect(83 + x, 25 + y, 1, 10);
+        g2d.fillRect(95 + x, 25 + y, 1, 1);
+        g2d.fillRect(112 + x, 25 + y, 1, 1);
+        g2d.fillRect(129 + x, 25 + y, 1, 2);
+        g2d.fillRect(6 + x, 26 + y, 1, 6);
+        g2d.fillRect(17 + x, 26 + y, 1, 10);
+        g2d.fillRect(28 + x, 26 + y, 1, 2);
+        g2d.fillRect(50 + x, 26 + y, 1, 3);
+        g2d.fillRect(67 + x, 26 + y, 1, 4);
+        g2d.fillRect(111 + x, 26 + y, 1, 1);
+        g2d.fillRect(128 + x, 26 + y, 1, 3);
+        g2d.fillRect(27 + x, 27 + y, 1, 1);
+        g2d.fillRect(110 + x, 27 + y, 1, 1);
+        g2d.fillRect(118 + x, 27 + y, 1, 10);
+        g2d.fillRect(25 + x, 28 + y, 2, 1);
+        g2d.fillRect(40 + x, 28 + y, 1, 1);
+        g2d.fillRect(49 + x, 28 + y, 1, 6);
+        g2d.fillRect(109 + x, 28 + y, 1, 2);
+        g2d.fillRect(127 + x, 28 + y, 1, 6);
+        g2d.fillRect(20 + x, 29 + y, 3, 1);
+        g2d.fillRect(48 + x, 29 + y, 1, 13);
+        g2d.fillRect(56 + x, 29 + y, 1, 1);
+        g2d.fillRect(69 + x, 29 + y, 1, 4);
+        g2d.fillRect(82 + x, 29 + y, 1, 13);
+        g2d.fillRect(97 + x, 29 + y, 1, 10);
+        g2d.fillRect(126 + x, 29 + y, 1, 13);
+        g2d.fillRect(134 + x, 29 + y, 1, 1);
+        g2d.fillRect(16 + x, 30 + y, 1, 10);
+        g2d.fillRect(36 + x, 30 + y, 1, 10);
+        g2d.fillRect(55 + x, 30 + y, 1, 1);
+        g2d.fillRect(70 + x, 30 + y, 1, 4);
+        g2d.fillRect(108 + x, 30 + y, 1, 3);
+        g2d.fillRect(133 + x, 30 + y, 1, 1);
+        g2d.fillRect(54 + x, 31 + y, 1, 1);
+        g2d.fillRect(71 + x, 31 + y, 1, 4);
+        g2d.fillRect(107 + x, 31 + y, 1, 10);
+        g2d.fillRect(117 + x, 31 + y, 1, 16);
+        g2d.fillRect(132 + x, 31 + y, 1, 1);
+        g2d.fillRect(7 + x, 32 + y, 1, 2);
+        g2d.fillRect(47 + x, 32 + y, 1, 9);
+        g2d.fillRect(52 + x, 32 + y, 1, 1);
+        g2d.fillRect(72 + x, 32 + y, 1, 8);
+        g2d.fillRect(96 + x, 32 + y, 1, 10);
+        g2d.fillRect(125 + x, 32 + y, 1, 9);
+        g2d.fillRect(130 + x, 32 + y, 1, 1);
+        g2d.fillRect(8 + x, 33 + y, 1, 2);
+        g2d.fillRect(73 + x, 33 + y, 1, 6);
+        g2d.fillRect(81 + x, 33 + y, 1, 9);
+        g2d.fillRect(106 + x, 33 + y, 1, 8);
+        g2d.fillRect(9 + x, 34 + y, 1, 2);
+        g2d.fillRect(15 + x, 34 + y, 1, 8);
+        g2d.fillRect(35 + x, 34 + y, 1, 8);
+        g2d.fillRect(116 + x, 34 + y, 1, 15);
+        g2d.fillRect(46 + x, 35 + y, 1, 5);
+        g2d.fillRect(124 + x, 35 + y, 1, 5);
+        g2d.fillRect(58 + x, 36 + y, 1, 1);
+        g2d.fillRect(74 + x, 36 + y, 1, 1);
+        g2d.fillRect(95 + x, 36 + y, 1, 6);
+        g2d.fillRect(105 + x, 36 + y, 1, 4);
+        g2d.fillRect(115 + x, 36 + y, 1, 2);
+        g2d.fillRect(136 + x, 36 + y, 1, 1);
+        g2d.fillRect(57 + x, 37 + y, 1, 1);
+        g2d.fillRect(63 + x, 37 + y, 1, 4);
+        g2d.fillRect(64 + x, 37 + y, 1, 4);
+        g2d.fillRect(80 + x, 37 + y, 1, 4);
+        g2d.fillRect(135 + x, 37 + y, 1, 1);
+        g2d.fillRect(14 + x, 38 + y, 1, 4);
+        g2d.fillRect(34 + x, 38 + y, 1, 4);
+        g2d.fillRect(49 + x, 38 + y, 1, 4);
+        g2d.fillRect(56 + x, 38 + y, 1, 1);
+        g2d.fillRect(62 + x, 38 + y, 1, 1);
+        g2d.fillRect(87 + x, 38 + y, 1, 1);
+        g2d.fillRect(101 + x, 38 + y, 1, 1);
+        g2d.fillRect(127 + x, 38 + y, 1, 4);
+        g2d.fillRect(134 + x, 38 + y, 1, 1);
+        g2d.fillRect(54 + x, 39 + y, 1, 1);
+        g2d.fillRect(86 + x, 39 + y, 1, 1);
+        g2d.fillRect(100 + x, 39 + y, 1, 1);
+        g2d.fillRect(108 + x, 39 + y, 1, 2);
+        g2d.fillRect(112 + x, 39 + y, 1, 1);
+        g2d.fillRect(132 + x, 39 + y, 1, 1);
+        g2d.fillRect(13 + x, 40 + y, 1, 2);
+        g2d.fillRect(50 + x, 40 + y, 1, 2);
+        g2d.fillRect(51 + x, 40 + y, 1, 2);
+        g2d.fillRect(52 + x, 40 + y, 2, 1);
+        g2d.fillRect(71 + x, 40 + y, 1, 1);
+        g2d.fillRect(83 + x, 40 + y, 2, 1);
+        g2d.fillRect(97 + x, 40 + y, 1, 2);
+        g2d.fillRect(98 + x, 40 + y, 1, 1);
+        g2d.fillRect(109 + x, 40 + y, 2, 1);
+        g2d.fillRect(115 + x, 40 + y, 1, 10);
+        g2d.fillRect(128 + x, 40 + y, 1, 2);
+        g2d.fillRect(129 + x, 40 + y, 1, 2);
+        g2d.fillRect(130 + x, 40 + y, 2, 1);
+        g2d.fillRect(9 + x, 41 + y, 4, 1);
+        g2d.fillRect(16 + x, 41 + y, 7, 1);
+        g2d.fillRect(65 + x, 41 + y, 6, 1);
+        g2d.fillRect(106 + x, 43 + y, 1, 1);
+        g2d.fillRect(105 + x, 44 + y, 1, 1);
+        g2d.fillRect(103 + x, 45 + y, 1, 2);
+        g2d.fillRect(102 + x, 46 + y, 1, 6);
+        g2d.fillRect(101 + x, 47 + y, 1, 4);
+        g2d.fillRect(114 + x, 48 + y, 1, 3);
+        g2d.fillRect(113 + x, 50 + y, 1, 2);
+        g2d.fillRect(103 + x, 51 + y, 1, 2);
+        g2d.fillRect(112 + x, 51 + y, 1, 2);
+        g2d.fillRect(104 + x, 52 + y, 1, 1);
+        g2d.fillRect(110 + x, 52 + y, 2, 1);
+        g2d.fillRect(105 + x, 53 + y, 5, 1);
+
+
+        g2d.setColor(COLORS.get(ImageUtilities.NEG_GREY_6));
+        g2d.fillRect(104 + x, 13 + y, 1, 2);
+        g2d.fillRect(26 + x, 15 + y, 1, 1);
+        g2d.fillRect(14 + x, 16 + y, 1, 1);
+        g2d.fillRect(28 + x, 16 + y, 1, 1);
+        g2d.fillRect(31 + x, 16 + y, 1, 1);
+        g2d.fillRect(29 + x, 17 + y, 1, 1);
+        g2d.fillRect(32 + x, 17 + y, 1, 1);
+        g2d.fillRect(11 + x, 18 + y, 1, 2);
+        g2d.fillRect(21 + x, 18 + y, 1, 1);
+        g2d.fillRect(10 + x, 19 + y, 1, 1);
+        g2d.fillRect(87 + x, 19 + y, 1, 1);
+        g2d.fillRect(9 + x, 20 + y, 1, 2);
+        g2d.fillRect(84 + x, 21 + y, 1, 1);
+        g2d.fillRect(45 + x, 22 + y, 1, 1);
+        g2d.fillRect(121 + x, 22 + y, 1, 1);
+        g2d.fillRect(44 + x, 23 + y, 1, 1);
+        g2d.fillRect(48 + x, 23 + y, 1, 1);
+        g2d.fillRect(59 + x, 23 + y, 1, 1);
+        g2d.fillRect(76 + x, 23 + y, 1, 1);
+        g2d.fillRect(97 + x, 23 + y, 1, 1);
+        g2d.fillRect(137 + x, 23 + y, 1, 1);
+        g2d.fillRect(20 + x, 24 + y, 1, 1);
+        g2d.fillRect(40 + x, 24 + y, 1, 1);
+        g2d.fillRect(43 + x, 24 + y, 1, 1);
+        g2d.fillRect(46 + x, 24 + y, 1, 1);
+        g2d.fillRect(6 + x, 25 + y, 1, 1);
+        g2d.fillRect(31 + x, 25 + y, 1, 1);
+        g2d.fillRect(42 + x, 25 + y, 1, 2);
+        g2d.fillRect(121 + x, 25 + y, 1, 1);
+        g2d.fillRect(30 + x, 26 + y, 1, 1);
+        g2d.fillRect(93 + x, 26 + y, 1, 1);
+        g2d.fillRect(41 + x, 27 + y, 1, 1);
+        g2d.fillRect(59 + x, 27 + y, 1, 1);
+        g2d.fillRect(137 + x, 27 + y, 1, 1);
+        g2d.fillRect(69 + x, 28 + y, 1, 1);
+        g2d.fillRect(50 + x, 29 + y, 1, 1);
+        g2d.fillRect(108 + x, 29 + y, 1, 1);
+        g2d.fillRect(128 + x, 29 + y, 1, 1);
+        g2d.fillRect(56 + x, 30 + y, 1, 1);
+        g2d.fillRect(117 + x, 30 + y, 1, 1);
+        g2d.fillRect(134 + x, 30 + y, 1, 1);
+        g2d.fillRect(7 + x, 31 + y, 1, 1);
+        g2d.fillRect(47 + x, 31 + y, 1, 1);
+        g2d.fillRect(53 + x, 31 + y, 1, 1);
+        g2d.fillRect(68 + x, 31 + y, 1, 1);
+        g2d.fillRect(125 + x, 31 + y, 1, 1);
+        g2d.fillRect(131 + x, 31 + y, 1, 1);
+        g2d.fillRect(6 + x, 32 + y, 1, 1);
+        g2d.fillRect(50 + x, 33 + y, 1, 1);
+        g2d.fillRect(128 + x, 33 + y, 1, 1);
+        g2d.fillRect(46 + x, 34 + y, 1, 1);
+        g2d.fillRect(49 + x, 34 + y, 1, 1);
+        g2d.fillRect(124 + x, 34 + y, 1, 1);
+        g2d.fillRect(127 + x, 34 + y, 1, 1);
+        g2d.fillRect(74 + x, 35 + y, 1, 1);
+        g2d.fillRect(14 + x, 37 + y, 1, 1);
+        g2d.fillRect(89 + x, 37 + y, 1, 1);
+        g2d.fillRect(102 + x, 37 + y, 1, 1);
+        g2d.fillRect(114 + x, 37 + y, 1, 1);
+        g2d.fillRect(55 + x, 38 + y, 1, 2);
+        g2d.fillRect(113 + x, 38 + y, 1, 1);
+        g2d.fillRect(133 + x, 38 + y, 1, 2);
+        g2d.fillRect(13 + x, 39 + y, 1, 1);
+        g2d.fillRect(73 + x, 39 + y, 1, 1);
+        g2d.fillRect(97 + x, 39 + y, 1, 1);
+        g2d.fillRect(12 + x, 40 + y, 1, 1);
+        g2d.fillRect(36 + x, 40 + y, 1, 1);
+        g2d.fillRect(65 + x, 40 + y, 1, 1);
+        g2d.fillRect(72 + x, 40 + y, 1, 1);
+        g2d.fillRect(99 + x, 40 + y, 1, 1);
+        g2d.fillRect(105 + x, 40 + y, 1, 1);
+        g2d.fillRect(111 + x, 40 + y, 1, 1);
+        g2d.fillRect(47 + x, 41 + y, 1, 1);
+        g2d.fillRect(64 + x, 41 + y, 1, 1);
+        g2d.fillRect(80 + x, 41 + y, 1, 1);
+        g2d.fillRect(83 + x, 41 + y, 1, 1);
+        g2d.fillRect(106 + x, 41 + y, 2, 1);
+        g2d.fillRect(109 + x, 41 + y, 1, 1);
+        g2d.fillRect(125 + x, 41 + y, 1, 1);
+        g2d.fillRect(108 + x, 42 + y, 1, 1);
+        g2d.fillRect(104 + x, 44 + y, 1, 2);
+        g2d.fillRect(115 + x, 50 + y, 1, 1);
+        g2d.fillRect(114 + x, 51 + y, 1, 1);
+        g2d.fillRect(110 + x, 53 + y, 1, 1);
+
+
+        g2d.setColor(COLORS.get(ImageUtilities.NEG_GREY_5));
+        g2d.fillRect(21 + x, 14 + y, 1, 1);
+        g2d.fillRect(26 + x, 14 + y, 1, 1);
+        g2d.fillRect(19 + x, 15 + y, 1, 1);
+        g2d.fillRect(101 + x, 15 + y, 1, 1);
+        g2d.fillRect(16 + x, 16 + y, 1, 1);
+        g2d.fillRect(14 + x, 17 + y, 1, 1);
+        g2d.fillRect(33 + x, 19 + y, 1, 1);
+        g2d.fillRect(122 + x, 22 + y, 1, 1);
+        g2d.fillRect(37 + x, 23 + y, 1, 1);
+        g2d.fillRect(53 + x, 23 + y, 1, 1);
+        g2d.fillRect(131 + x, 23 + y, 1, 1);
+        g2d.fillRect(113 + x, 24 + y, 1, 2);
+        g2d.fillRect(34 + x, 25 + y, 1, 1);
+        g2d.fillRect(94 + x, 25 + y, 1, 2);
+        g2d.fillRect(33 + x, 26 + y, 1, 1);
+        g2d.fillRect(118 + x, 26 + y, 1, 1);
+        g2d.fillRect(26 + x, 27 + y, 1, 1);
+        g2d.fillRect(49 + x, 27 + y, 1, 1);
+        g2d.fillRect(127 + x, 27 + y, 1, 1);
+        g2d.fillRect(24 + x, 28 + y, 1, 1);
+        g2d.fillRect(27 + x, 28 + y, 1, 1);
+        g2d.fillRect(16 + x, 29 + y, 1, 1);
+        g2d.fillRect(23 + x, 29 + y, 1, 1);
+        g2d.fillRect(99 + x, 30 + y, 1, 1);
+        g2d.fillRect(38 + x, 32 + y, 1, 1);
+        g2d.fillRect(51 + x, 32 + y, 1, 1);
+        g2d.fillRect(129 + x, 32 + y, 1, 1);
+        g2d.fillRect(9 + x, 33 + y, 1, 1);
+        g2d.fillRect(15 + x, 33 + y, 1, 1);
+        g2d.fillRect(116 + x, 33 + y, 1, 1);
+        g2d.fillRect(83 + x, 35 + y, 1, 1);
+        g2d.fillRect(37 + x, 36 + y, 1, 1);
+        g2d.fillRect(90 + x, 36 + y, 1, 1);
+        g2d.fillRect(74 + x, 37 + y, 1, 1);
+        g2d.fillRect(88 + x, 37 + y, 1, 1);
+        g2d.fillRect(118 + x, 37 + y, 1, 1);
+        g2d.fillRect(50 + x, 39 + y, 1, 1);
+        g2d.fillRect(53 + x, 39 + y, 1, 1);
+        g2d.fillRect(62 + x, 39 + y, 1, 1);
+        g2d.fillRect(85 + x, 39 + y, 1, 2);
+        g2d.fillRect(115 + x, 39 + y, 1, 1);
+        g2d.fillRect(128 + x, 39 + y, 1, 1);
+        g2d.fillRect(131 + x, 39 + y, 1, 1);
+        g2d.fillRect(46 + x, 40 + y, 1, 1);
+        g2d.fillRect(124 + x, 40 + y, 1, 1);
+        g2d.fillRect(33 + x, 41 + y, 1, 1);
+        g2d.fillRect(108 + x, 41 + y, 1, 1);
+        g2d.fillRect(113 + x, 49 + y, 1, 1);
+        g2d.fillRect(111 + x, 51 + y, 1, 1);
+        g2d.fillRect(105 + x, 52 + y, 1, 1);
+        g2d.fillRect(109 + x, 52 + y, 1, 1);
+        g2d.fillRect(104 + x, 53 + y, 1, 1);
+
+
+        g2d.setColor(COLORS.get(ImageUtilities.NEG_GREY_4));
+        g2d.fillRect(16 + x, 15 + y, 1, 1);
+        g2d.fillRect(17 + x, 19 + y, 1, 1);
+        g2d.fillRect(10 + x, 20 + y, 1, 1);
+        g2d.fillRect(8 + x, 21 + y, 1, 1);
+        g2d.fillRect(18 + x, 21 + y, 1, 1);
+        g2d.fillRect(32 + x, 24 + y, 1, 1);
+        g2d.fillRect(68 + x, 24 + y, 1, 1);
+        g2d.fillRect(95 + x, 24 + y, 1, 1);
+        g2d.fillRect(7 + x, 25 + y, 1, 1);
+        g2d.fillRect(17 + x, 25 + y, 1, 1);
+        g2d.fillRect(28 + x, 25 + y, 1, 1);
+        g2d.fillRect(118 + x, 25 + y, 1, 1);
+        g2d.fillRect(41 + x, 26 + y, 1, 1);
+        g2d.fillRect(29 + x, 27 + y, 1, 1);
+        g2d.fillRect(56 + x, 28 + y, 1, 1);
+        g2d.fillRect(97 + x, 28 + y, 1, 1);
+        g2d.fillRect(134 + x, 28 + y, 1, 1);
+        g2d.fillRect(70 + x, 29 + y, 1, 1);
+        g2d.fillRect(120 + x, 29 + y, 1, 1);
+        g2d.fillRect(54 + x, 30 + y, 1, 1);
+        g2d.fillRect(132 + x, 30 + y, 1, 1);
+        g2d.fillRect(8 + x, 32 + y, 1, 1);
+        g2d.fillRect(18 + x, 32 + y, 1, 1);
+        g2d.fillRect(7 + x, 34 + y, 1, 1);
+        g2d.fillRect(98 + x, 34 + y, 1, 1);
+        g2d.fillRect(95 + x, 35 + y, 1, 1);
+        g2d.fillRect(105 + x, 35 + y, 1, 1);
+        g2d.fillRect(89 + x, 36 + y, 1, 1);
+        g2d.fillRect(34 + x, 37 + y, 1, 1);
+        g2d.fillRect(114 + x, 38 + y, 2, 1);
+        g2d.fillRect(83 + x, 39 + y, 1, 1);
+        g2d.fillRect(111 + x, 39 + y, 1, 1);
+        g2d.fillRect(114 + x, 47 + y, 1, 1);
+        g2d.fillRect(116 + x, 49 + y, 1, 1);
+        g2d.fillRect(112 + x, 50 + y, 1, 1);
+        g2d.fillRect(101 + x, 51 + y, 1, 1);
+        g2d.fillRect(102 + x, 52 + y, 1, 1);
+
+
+        g2d.setColor(COLORS.get(ImageUtilities.NEG_GREY_3));
+        g2d.fillRect(103 + x, 12 + y, 1, 1);
+        g2d.fillRect(20 + x, 14 + y, 1, 2);
+        g2d.fillRect(27 + x, 14 + y, 1, 1);
+        g2d.fillRect(25 + x, 15 + y, 1, 1);
+        g2d.fillRect(30 + x, 15 + y, 1, 1);
+        g2d.fillRect(12 + x, 17 + y, 1, 1);
+        g2d.fillRect(20 + x, 18 + y, 1, 1);
+        g2d.fillRect(18 + x, 20 + y, 1, 1);
+        g2d.fillRect(21 + x, 21 + y, 1, 1);
+        g2d.fillRect(48 + x, 21 + y, 1, 1);
+        g2d.fillRect(40 + x, 22 + y, 1, 1);
+        g2d.fillRect(56 + x, 22 + y, 2, 1);
+        g2d.fillRect(72 + x, 22 + y, 2, 1);
+        g2d.fillRect(100 + x, 22 + y, 1, 1);
+        g2d.fillRect(134 + x, 22 + y, 2, 1);
+        g2d.fillRect(69 + x, 23 + y, 1, 1);
+        g2d.fillRect(101 + x, 23 + y, 1, 1);
+        g2d.fillRect(115 + x, 23 + y, 1, 1);
+        g2d.fillRect(35 + x, 24 + y, 1, 1);
+        g2d.fillRect(44 + x, 25 + y, 1, 1);
+        g2d.fillRect(52 + x, 25 + y, 1, 1);
+        g2d.fillRect(69 + x, 25 + y, 1, 1);
+        g2d.fillRect(86 + x, 25 + y, 1, 1);
+        g2d.fillRect(130 + x, 25 + y, 1, 1);
+        g2d.fillRect(40 + x, 27 + y, 1, 1);
+        g2d.fillRect(100 + x, 27 + y, 1, 1);
+        g2d.fillRect(82 + x, 28 + y, 1, 1);
+        g2d.fillRect(85 + x, 28 + y, 1, 1);
+        g2d.fillRect(110 + x, 28 + y, 1, 1);
+        g2d.fillRect(24 + x, 29 + y, 1, 1);
+        g2d.fillRect(36 + x, 29 + y, 1, 1);
+        g2d.fillRect(39 + x, 30 + y, 1, 1);
+        g2d.fillRect(109 + x, 30 + y, 1, 1);
+        g2d.fillRect(81 + x, 32 + y, 1, 1);
+        g2d.fillRect(84 + x, 32 + y, 1, 1);
+        g2d.fillRect(106 + x, 32 + y, 1, 1);
+        g2d.fillRect(35 + x, 33 + y, 1, 1);
+        g2d.fillRect(108 + x, 33 + y, 1, 1);
+        g2d.fillRect(119 + x, 33 + y, 1, 1);
+        g2d.fillRect(8 + x, 35 + y, 1, 1);
+        g2d.fillRect(49 + x, 35 + y, 1, 3);
+        g2d.fillRect(71 + x, 35 + y, 1, 1);
+        g2d.fillRect(127 + x, 35 + y, 1, 3);
+        g2d.fillRect(17 + x, 36 + y, 1, 1);
+        g2d.fillRect(80 + x, 36 + y, 1, 1);
+        g2d.fillRect(56 + x, 37 + y, 1, 1);
+        g2d.fillRect(62 + x, 37 + y, 1, 1);
+        g2d.fillRect(134 + x, 37 + y, 1, 1);
+        g2d.fillRect(88 + x, 38 + y, 1, 1);
+        g2d.fillRect(109 + x, 39 + y, 1, 1);
+        g2d.fillRect(94 + x, 40 + y, 1, 1);
+        g2d.fillRect(52 + x, 41 + y, 1, 1);
+        g2d.fillRect(110 + x, 41 + y, 1, 1);
+        g2d.fillRect(130 + x, 41 + y, 1, 1);
+        g2d.fillRect(107 + x, 43 + y, 1, 1);
+        g2d.fillRect(113 + x, 52 + y, 1, 1);
+
+
+        g2d.setColor(COLORS.get(ImageUtilities.NEG_GREY_2));
+        g2d.fillRect(84 + x, 20 + y, 1, 1);
+        g2d.fillRect(87 + x, 20 + y, 1, 1);
+        g2d.fillRect(33 + x, 22 + y, 1, 1);
+        g2d.fillRect(74 + x, 22 + y, 1, 1);
+        g2d.fillRect(99 + x, 22 + y, 1, 1);
+        g2d.fillRect(8 + x, 23 + y, 1, 1);
+        g2d.fillRect(53 + x, 24 + y, 1, 1);
+        g2d.fillRect(77 + x, 24 + y, 1, 2);
+        g2d.fillRect(131 + x, 24 + y, 1, 1);
+        g2d.fillRect(20 + x, 25 + y, 1, 1);
+        g2d.fillRect(40 + x, 25 + y, 1, 1);
+        g2d.fillRect(74 + x, 25 + y, 1, 1);
+        g2d.fillRect(27 + x, 26 + y, 1, 1);
+        g2d.fillRect(76 + x, 26 + y, 1, 1);
+        g2d.fillRect(117 + x, 29 + y, 1, 1);
+        g2d.fillRect(50 + x, 30 + y, 1, 1);
+        g2d.fillRect(107 + x, 30 + y, 1, 1);
+        g2d.fillRect(128 + x, 30 + y, 1, 1);
+        g2d.fillRect(96 + x, 31 + y, 1, 1);
+        g2d.fillRect(46 + x, 33 + y, 1, 1);
+        g2d.fillRect(124 + x, 33 + y, 1, 1);
+        g2d.fillRect(10 + x, 34 + y, 1, 1);
+        g2d.fillRect(14 + x, 36 + y, 1, 1);
+        g2d.fillRect(108 + x, 38 + y, 1, 1);
+        g2d.fillRect(118 + x, 38 + y, 1, 1);
+        g2d.fillRect(71 + x, 39 + y, 1, 1);
+        g2d.fillRect(94 + x, 39 + y, 1, 1);
+        g2d.fillRect(16 + x, 40 + y, 1, 1);
+        g2d.fillRect(54 + x, 40 + y, 1, 1);
+        g2d.fillRect(70 + x, 40 + y, 1, 1);
+        g2d.fillRect(132 + x, 40 + y, 1, 1);
+        g2d.fillRect(36 + x, 41 + y, 1, 1);
+        g2d.fillRect(117 + x, 47 + y, 1, 1);
+        g2d.fillRect(103 + x, 50 + y, 1, 1);
+
+
+        g2d.setColor(COLORS.get(ImageUtilities.NEG_GREY_1));
+        g2d.fillRect(102 + x, 12 + y, 1, 1);
+        g2d.fillRect(101 + x, 13 + y, 1, 1);
+        g2d.fillRect(19 + x, 14 + y, 1, 1);
+        g2d.fillRect(33 + x, 18 + y, 1, 1);
+        g2d.fillRect(85 + x, 18 + y, 1, 1);
+        g2d.fillRect(46 + x, 21 + y, 1, 1);
+        g2d.fillRect(39 + x, 22 + y, 1, 1);
+        g2d.fillRect(29 + x, 23 + y, 1, 1);
+        g2d.fillRect(47 + x, 24 + y, 1, 1);
+        g2d.fillRect(56 + x, 24 + y, 1, 1);
+        g2d.fillRect(73 + x, 24 + y, 1, 1);
+        g2d.fillRect(134 + x, 24 + y, 1, 1);
+        g2d.fillRect(67 + x, 25 + y, 1, 1);
+        g2d.fillRect(75 + x, 26 + y, 1, 1);
+        g2d.fillRect(110 + x, 26 + y, 1, 1);
+        g2d.fillRect(121 + x, 26 + y, 1, 1);
+        g2d.fillRect(51 + x, 27 + y, 1, 1);
+        g2d.fillRect(69 + x, 27 + y, 1, 1);
+        g2d.fillRect(93 + x, 27 + y, 1, 1);
+        g2d.fillRect(129 + x, 27 + y, 1, 1);
+        g2d.fillRect(16 + x, 28 + y, 1, 1);
+        g2d.fillRect(23 + x, 28 + y, 1, 1);
+        g2d.fillRect(55 + x, 29 + y, 1, 1);
+        g2d.fillRect(133 + x, 29 + y, 1, 1);
+        g2d.fillRect(47 + x, 30 + y, 1, 1);
+        g2d.fillRect(67 + x, 30 + y, 1, 1);
+        g2d.fillRect(71 + x, 30 + y, 1, 1);
+        g2d.fillRect(125 + x, 30 + y, 1, 1);
+        g2d.fillRect(72 + x, 31 + y, 1, 1);
+        g2d.fillRect(99 + x, 31 + y, 1, 1);
+        g2d.fillRect(15 + x, 32 + y, 1, 1);
+        g2d.fillRect(53 + x, 32 + y, 1, 1);
+        g2d.fillRect(131 + x, 32 + y, 1, 1);
+        g2d.fillRect(38 + x, 33 + y, 1, 1);
+        g2d.fillRect(70 + x, 34 + y, 1, 1);
+        g2d.fillRect(74 + x, 34 + y, 1, 1);
+        g2d.fillRect(115 + x, 35 + y, 1, 1);
+        g2d.fillRect(83 + x, 36 + y, 1, 1);
+        g2d.fillRect(37 + x, 37 + y, 1, 1);
+        g2d.fillRect(99 + x, 39 + y, 1, 1);
+        g2d.fillRect(11 + x, 40 + y, 1, 1);
+        g2d.fillRect(33 + x, 40 + y, 1, 1);
+        g2d.fillRect(71 + x, 41 + y, 1, 1);
+        g2d.fillRect(94 + x, 41 + y, 1, 1);
+        g2d.fillRect(98 + x, 41 + y, 1, 1);
+        g2d.fillRect(107 + x, 42 + y, 1, 1);
+        g2d.fillRect(105 + x, 43 + y, 1, 1);
+        g2d.fillRect(102 + x, 45 + y, 1, 1);
+        g2d.fillRect(103 + x, 47 + y, 1, 1);
+        g2d.fillRect(108 + x, 52 + y, 1, 1);
+        g2d.fillRect(111 + x, 53 + y, 1, 1);
+
+
+        g2d.setColor(COLORS.get(ImageUtilities.GREY));
+        g2d.fillRect(22 + x, 18 + y, 1, 1);
+        g2d.fillRect(7 + x, 22 + y, 1, 1);
+        g2d.fillRect(55 + x, 22 + y, 1, 1);
+        g2d.fillRect(58 + x, 22 + y, 1, 1);
+        g2d.fillRect(133 + x, 22 + y, 1, 1);
+        g2d.fillRect(136 + x, 22 + y, 1, 1);
+        g2d.fillRect(83 + x, 23 + y, 1, 1);
+        g2d.fillRect(122 + x, 23 + y, 1, 1);
+        g2d.fillRect(6 + x, 24 + y, 1, 1);
+        g2d.fillRect(17 + x, 24 + y, 1, 1);
+        g2d.fillRect(91 + x, 24 + y, 1, 1);
+        g2d.fillRect(101 + x, 24 + y, 1, 1);
+        g2d.fillRect(96 + x, 25 + y, 1, 1);
+        g2d.fillRect(97 + x, 27 + y, 1, 1);
+        g2d.fillRect(36 + x, 28 + y, 1, 1);
+        g2d.fillRect(48 + x, 28 + y, 1, 1);
+        g2d.fillRect(126 + x, 28 + y, 1, 1);
+        g2d.fillRect(7 + x, 30 + y, 1, 1);
+        g2d.fillRect(55 + x, 31 + y, 1, 1);
+        g2d.fillRect(133 + x, 31 + y, 1, 1);
+        g2d.fillRect(50 + x, 32 + y, 1, 1);
+        g2d.fillRect(116 + x, 32 + y, 1, 1);
+        g2d.fillRect(128 + x, 32 + y, 1, 1);
+        g2d.fillRect(6 + x, 33 + y, 1, 1);
+        g2d.fillRect(18 + x, 33 + y, 1, 1);
+        g2d.fillRect(84 + x, 33 + y, 1, 1);
+        g2d.fillRect(95 + x, 34 + y, 1, 1);
+        g2d.fillRect(105 + x, 34 + y, 1, 1);
+        g2d.fillRect(98 + x, 35 + y, 1, 1);
+        g2d.fillRect(34 + x, 36 + y, 1, 1);
+        g2d.fillRect(52 + x, 39 + y, 1, 1);
+        g2d.fillRect(65 + x, 39 + y, 1, 1);
+        g2d.fillRect(113 + x, 39 + y, 1, 1);
+        g2d.fillRect(130 + x, 39 + y, 1, 1);
+        g2d.fillRect(101 + x, 46 + y, 1, 1);
+        g2d.fillRect(106 + x, 52 + y, 1, 1);
+
+
+        g2d.setColor(COLORS.get(ImageUtilities.GREY_1));
+        g2d.fillRect(28 + x, 14 + y, 1, 1);
+        g2d.fillRect(21 + x, 15 + y, 4, 1);
+        g2d.fillRect(104 + x, 15 + y, 1, 1);
+        g2d.fillRect(17 + x, 16 + y, 1, 1);
+        g2d.fillRect(102 + x, 16 + y, 1, 1);
+        g2d.fillRect(87 + x, 17 + y, 1, 1);
+        g2d.fillRect(13 + x, 18 + y, 1, 1);
+        g2d.fillRect(18 + x, 18 + y, 2, 1);
+        g2d.fillRect(87 + x, 21 + y, 1, 1);
+        g2d.fillRect(21 + x, 22 + y, 1, 1);
+        g2d.fillRect(71 + x, 22 + y, 1, 1);
+        g2d.fillRect(75 + x, 22 + y, 1, 1);
+        g2d.fillRect(98 + x, 22 + y, 1, 1);
+        g2d.fillRect(96 + x, 23 + y, 1, 1);
+        g2d.fillRect(60 + x, 24 + y, 1, 2);
+        g2d.fillRect(70 + x, 24 + y, 1, 1);
+        g2d.fillRect(79 + x, 24 + y, 1, 1);
+        g2d.fillRect(138 + x, 24 + y, 1, 2);
+        g2d.fillRect(35 + x, 25 + y, 1, 1);
+        g2d.fillRect(80 + x, 25 + y, 3, 1);
+        g2d.fillRect(87 + x, 25 + y, 4, 1);
+        g2d.fillRect(111 + x, 25 + y, 1, 1);
+        g2d.fillRect(114 + x, 25 + y, 1, 1);
+        g2d.fillRect(7 + x, 26 + y, 1, 1);
+        g2d.fillRect(20 + x, 26 + y, 1, 1);
+        g2d.fillRect(40 + x, 26 + y, 1, 1);
+        g2d.fillRect(69 + x, 26 + y, 1, 1);
+        g2d.fillRect(112 + x, 26 + y, 1, 1);
+        g2d.fillRect(82 + x, 27 + y, 1, 1);
+        g2d.fillRect(109 + x, 27 + y, 1, 1);
+        g2d.fillRect(111 + x, 27 + y, 1, 1);
+        g2d.fillRect(5 + x, 28 + y, 1, 3);
+        g2d.fillRect(20 + x, 28 + y, 3, 1);
+        g2d.fillRect(100 + x, 28 + y, 1, 1);
+        g2d.fillRect(25 + x, 29 + y, 1, 1);
+        g2d.fillRect(40 + x, 29 + y, 1, 1);
+        g2d.fillRect(85 + x, 29 + y, 1, 1);
+        g2d.fillRect(96 + x, 30 + y, 1, 1);
+        g2d.fillRect(120 + x, 30 + y, 1, 1);
+        g2d.fillRect(50 + x, 31 + y, 1, 1);
+        g2d.fillRect(52 + x, 31 + y, 1, 1);
+        g2d.fillRect(81 + x, 31 + y, 1, 1);
+        g2d.fillRect(128 + x, 31 + y, 1, 1);
+        g2d.fillRect(130 + x, 31 + y, 1, 1);
+        g2d.fillRect(35 + x, 32 + y, 1, 1);
+        g2d.fillRect(73 + x, 32 + y, 1, 1);
+        g2d.fillRect(51 + x, 33 + y, 1, 1);
+        g2d.fillRect(129 + x, 33 + y, 1, 1);
+        g2d.fillRect(108 + x, 34 + y, 1, 1);
+        g2d.fillRect(119 + x, 34 + y, 1, 1);
+        g2d.fillRect(10 + x, 35 + y, 1, 1);
+        g2d.fillRect(80 + x, 35 + y, 1, 1);
+        g2d.fillRect(57 + x, 36 + y, 1, 1);
+        g2d.fillRect(63 + x, 36 + y, 1, 1);
+        g2d.fillRect(135 + x, 36 + y, 1, 1);
+        g2d.fillRect(17 + x, 37 + y, 1, 1);
+        g2d.fillRect(83 + x, 37 + y, 1, 1);
+        g2d.fillRect(13 + x, 38 + y, 1, 1);
+        g2d.fillRect(65 + x, 38 + y, 1, 1);
+        g2d.fillRect(74 + x, 38 + y, 1, 1);
+        g2d.fillRect(86 + x, 38 + y, 1, 1);
+        g2d.fillRect(94 + x, 38 + y, 1, 1);
+        g2d.fillRect(100 + x, 38 + y, 1, 1);
+        g2d.fillRect(51 + x, 39 + y, 1, 1);
+        g2d.fillRect(84 + x, 39 + y, 1, 1);
+        g2d.fillRect(87 + x, 39 + y, 1, 1);
+        g2d.fillRect(110 + x, 39 + y, 1, 1);
+        g2d.fillRect(118 + x, 39 + y, 1, 2);
+        g2d.fillRect(129 + x, 39 + y, 1, 1);
+        g2d.fillRect(84 + x, 41 + y, 1, 1);
+        g2d.fillRect(18 + x, 42 + y, 3, 1);
+        g2d.fillRect(48 + x, 42 + y, 2, 1);
+        g2d.fillRect(66 + x, 42 + y, 3, 1);
+        g2d.fillRect(81 + x, 42 + y, 1, 1);
+        g2d.fillRect(95 + x, 42 + y, 2, 1);
+        g2d.fillRect(109 + x, 42 + y, 1, 1);
+        g2d.fillRect(126 + x, 42 + y, 2, 1);
+        g2d.fillRect(103 + x, 44 + y, 1, 1);
+        g2d.fillRect(106 + x, 44 + y, 1, 1);
+        g2d.fillRect(114 + x, 46 + y, 1, 1);
+        g2d.fillRect(100 + x, 48 + y, 1, 2);
+        g2d.fillRect(104 + x, 51 + y, 1, 1);
+        g2d.fillRect(107 + x, 52 + y, 1, 1);
+        g2d.fillRect(103 + x, 53 + y, 1, 1);
+
+
+        g2d.setColor(COLORS.get(ImageUtilities.GREY_2));
+        g2d.fillRect(18 + x, 14 + y, 1, 1);
+        g2d.fillRect(15 + x, 15 + y, 1, 1);
+        g2d.fillRect(13 + x, 16 + y, 1, 1);
+        g2d.fillRect(27 + x, 16 + y, 1, 1);
+        g2d.fillRect(15 + x, 17 + y, 1, 1);
+        g2d.fillRect(88 + x, 17 + y, 1, 1);
+        g2d.fillRect(29 + x, 18 + y, 1, 1);
+        g2d.fillRect(84 + x, 19 + y, 1, 1);
+        g2d.fillRect(33 + x, 23 + y, 1, 1);
+        g2d.fillRect(36 + x, 23 + y, 1, 1);
+        g2d.fillRect(114 + x, 23 + y, 1, 1);
+        g2d.fillRect(51 + x, 24 + y, 1, 1);
+        g2d.fillRect(129 + x, 24 + y, 1, 1);
+        g2d.fillRect(50 + x, 25 + y, 1, 1);
+        g2d.fillRect(79 + x, 25 + y, 1, 1);
+        g2d.fillRect(128 + x, 25 + y, 1, 1);
+        g2d.fillRect(60 + x, 26 + y, 1, 1);
+        g2d.fillRect(138 + x, 26 + y, 1, 1);
+        g2d.fillRect(5 + x, 27 + y, 1, 1);
+        g2d.fillRect(16 + x, 27 + y, 1, 1);
+        g2d.fillRect(32 + x, 27 + y, 1, 1);
+        g2d.fillRect(121 + x, 27 + y, 1, 1);
+        g2d.fillRect(28 + x, 28 + y, 1, 1);
+        g2d.fillRect(59 + x, 28 + y, 1, 1);
+        g2d.fillRect(117 + x, 28 + y, 1, 1);
+        g2d.fillRect(137 + x, 28 + y, 1, 1);
+        g2d.fillRect(58 + x, 29 + y, 1, 1);
+        g2d.fillRect(136 + x, 29 + y, 1, 1);
+        g2d.fillRect(19 + x, 30 + y, 1, 1);
+        g2d.fillRect(15 + x, 31 + y, 1, 1);
+        g2d.fillRect(109 + x, 31 + y, 1, 1);
+        g2d.fillRect(46 + x, 32 + y, 1, 1);
+        g2d.fillRect(124 + x, 32 + y, 1, 1);
+        g2d.fillRect(69 + x, 33 + y, 1, 1);
+        g2d.fillRect(14 + x, 35 + y, 1, 1);
+        g2d.fillRect(64 + x, 36 + y, 1, 1);
+        g2d.fillRect(58 + x, 37 + y, 1, 1);
+        g2d.fillRect(65 + x, 37 + y, 1, 1);
+        g2d.fillRect(101 + x, 37 + y, 1, 1);
+        g2d.fillRect(136 + x, 37 + y, 1, 1);
+        g2d.fillRect(37 + x, 38 + y, 1, 1);
+        g2d.fillRect(54 + x, 38 + y, 1, 1);
+        g2d.fillRect(57 + x, 38 + y, 1, 1);
+        g2d.fillRect(83 + x, 38 + y, 1, 1);
+        g2d.fillRect(102 + x, 38 + y, 1, 1);
+        g2d.fillRect(132 + x, 38 + y, 1, 1);
+        g2d.fillRect(135 + x, 38 + y, 1, 1);
+        g2d.fillRect(101 + x, 39 + y, 1, 1);
+        g2d.fillRect(23 + x, 41 + y, 1, 1);
+        g2d.fillRect(63 + x, 41 + y, 1, 1);
+        g2d.fillRect(9 + x, 42 + y, 1, 1);
+        g2d.fillRect(21 + x, 42 + y, 1, 1);
+        g2d.fillRect(50 + x, 42 + y, 1, 1);
+        g2d.fillRect(82 + x, 42 + y, 1, 1);
+        g2d.fillRect(128 + x, 42 + y, 1, 1);
+        g2d.fillRect(117 + x, 48 + y, 1, 1);
+        g2d.fillRect(110 + x, 51 + y, 1, 1);
+
+
+        g2d.setColor(COLORS.get(ImageUtilities.GREY_3));
+        g2d.fillRect(104 + x, 12 + y, 1, 1);
+        g2d.fillRect(9 + x, 22 + y, 1, 1);
+        g2d.fillRect(38 + x, 22 + y, 1, 1);
+        g2d.fillRect(54 + x, 22 + y, 1, 1);
+        g2d.fillRect(132 + x, 22 + y, 1, 1);
+        g2d.fillRect(17 + x, 23 + y, 1, 1);
+        g2d.fillRect(45 + x, 25 + y, 1, 1);
+        g2d.fillRect(101 + x, 25 + y, 1, 1);
+        g2d.fillRect(43 + x, 26 + y, 1, 1);
+        g2d.fillRect(36 + x, 27 + y, 1, 1);
+        g2d.fillRect(51 + x, 28 + y, 1, 1);
+        g2d.fillRect(108 + x, 28 + y, 1, 1);
+        g2d.fillRect(129 + x, 28 + y, 1, 1);
+        g2d.fillRect(7 + x, 29 + y, 1, 1);
+        g2d.fillRect(68 + x, 32 + y, 1, 1);
+        g2d.fillRect(99 + x, 32 + y, 1, 1);
+        g2d.fillRect(95 + x, 33 + y, 1, 1);
+        g2d.fillRect(18 + x, 34 + y, 1, 1);
+        g2d.fillRect(38 + x, 34 + y, 1, 1);
+        g2d.fillRect(108 + x, 35 + y, 1, 1);
+        g2d.fillRect(98 + x, 36 + y, 1, 1);
+        g2d.fillRect(108 + x, 37 + y, 1, 1);
+        g2d.fillRect(112 + x, 38 + y, 1, 1);
+        g2d.fillRect(33 + x, 39 + y, 1, 1);
+        g2d.fillRect(62 + x, 40 + y, 1, 1);
+        g2d.fillRect(66 + x, 40 + y, 1, 1);
+        g2d.fillRect(112 + x, 40 + y, 1, 1);
+        g2d.fillRect(118 + x, 41 + y, 1, 1);
+        g2d.fillRect(65 + x, 42 + y, 1, 1);
+        g2d.fillRect(69 + x, 42 + y, 1, 1);
+        g2d.fillRect(105 + x, 45 + y, 1, 1);
+        g2d.fillRect(100 + x, 50 + y, 1, 1);
+
+
+        g2d.setColor(COLORS.get(ImageUtilities.GREY_4));
+        g2d.fillRect(103 + x, 16 + y, 1, 1);
+        g2d.fillRect(17 + x, 18 + y, 1, 1);
+        g2d.fillRect(22 + x, 19 + y, 1, 1);
+        g2d.fillRect(29 + x, 22 + y, 1, 1);
+        g2d.fillRect(49 + x, 22 + y, 1, 1);
+        g2d.fillRect(87 + x, 22 + y, 1, 2);
+        g2d.fillRect(101 + x, 22 + y, 1, 1);
+        g2d.fillRect(118 + x, 22 + y, 3, 1);
+        g2d.fillRect(21 + x, 23 + y, 1, 1);
+        g2d.fillRect(52 + x, 23 + y, 1, 1);
+        g2d.fillRect(80 + x, 23 + y, 3, 1);
+        g2d.fillRect(88 + x, 23 + y, 3, 1);
+        g2d.fillRect(130 + x, 23 + y, 1, 1);
+        g2d.fillRect(112 + x, 24 + y, 1, 1);
+        g2d.fillRect(91 + x, 25 + y, 1, 1);
+        g2d.fillRect(97 + x, 25 + y, 1, 1);
+        g2d.fillRect(115 + x, 25 + y, 3, 1);
+        g2d.fillRect(31 + x, 26 + y, 1, 1);
+        g2d.fillRect(49 + x, 26 + y, 1, 1);
+        g2d.fillRect(86 + x, 26 + y, 1, 1);
+        g2d.fillRect(127 + x, 26 + y, 1, 1);
+        g2d.fillRect(7 + x, 27 + y, 1, 2);
+        g2d.fillRect(25 + x, 27 + y, 1, 1);
+        g2d.fillRect(56 + x, 27 + y, 1, 1);
+        g2d.fillRect(66 + x, 27 + y, 1, 2);
+        g2d.fillRect(134 + x, 27 + y, 1, 1);
+        g2d.fillRect(110 + x, 29 + y, 1, 1);
+        g2d.fillRect(57 + x, 30 + y, 1, 1);
+        g2d.fillRect(81 + x, 30 + y, 1, 1);
+        g2d.fillRect(85 + x, 30 + y, 1, 1);
+        g2d.fillRect(135 + x, 30 + y, 1, 1);
+        g2d.fillRect(5 + x, 31 + y, 1, 1);
+        g2d.fillRect(35 + x, 31 + y, 1, 1);
+        g2d.fillRect(39 + x, 31 + y, 1, 1);
+        g2d.fillRect(106 + x, 31 + y, 1, 1);
+        g2d.fillRect(116 + x, 31 + y, 1, 1);
+        g2d.fillRect(120 + x, 31 + y, 1, 1);
+        g2d.fillRect(80 + x, 34 + y, 1, 1);
+        g2d.fillRect(34 + x, 35 + y, 1, 1);
+        g2d.fillRect(58 + x, 35 + y, 1, 1);
+        g2d.fillRect(119 + x, 35 + y, 1, 1);
+        g2d.fillRect(136 + x, 35 + y, 1, 1);
+        g2d.fillRect(45 + x, 36 + y, 1, 3);
+        g2d.fillRect(108 + x, 36 + y, 1, 1);
+        g2d.fillRect(123 + x, 36 + y, 1, 3);
+        g2d.fillRect(90 + x, 37 + y, 1, 1);
+        g2d.fillRect(94 + x, 37 + y, 1, 1);
+        g2d.fillRect(17 + x, 38 + y, 1, 1);
+        g2d.fillRect(104 + x, 38 + y, 1, 2);
+        g2d.fillRect(79 + x, 39 + y, 1, 2);
+        g2d.fillRect(10 + x, 40 + y, 1, 1);
+        g2d.fillRect(22 + x, 40 + y, 2, 1);
+        g2d.fillRect(69 + x, 40 + y, 1, 1);
+        g2d.fillRect(86 + x, 40 + y, 1, 1);
+        g2d.fillRect(46 + x, 41 + y, 1, 1);
+        g2d.fillRect(53 + x, 41 + y, 1, 1);
+        g2d.fillRect(105 + x, 41 + y, 1, 1);
+        g2d.fillRect(124 + x, 41 + y, 1, 1);
+        g2d.fillRect(131 + x, 41 + y, 1, 1);
+        g2d.fillRect(10 + x, 42 + y, 1, 1);
+        g2d.fillRect(16 + x, 42 + y, 2, 1);
+        g2d.fillRect(118 + x, 42 + y, 1, 3);
+        g2d.fillRect(114 + x, 45 + y, 1, 1);
+        g2d.fillRect(103 + x, 48 + y, 1, 2);
+        g2d.fillRect(113 + x, 48 + y, 1, 1);
+        g2d.fillRect(112 + x, 53 + y, 1, 1);
+        g2d.fillRect(106 + x, 54 + y, 3, 1);
+
+
+        g2d.setColor(COLORS.get(ImageUtilities.GREY_5));
+        g2d.fillRect(32 + x, 16 + y, 1, 1);
+        g2d.fillRect(28 + x, 17 + y, 1, 1);
+        g2d.fillRect(10 + x, 18 + y, 1, 1);
+        g2d.fillRect(88 + x, 18 + y, 1, 1);
+        g2d.fillRect(9 + x, 19 + y, 1, 1);
+        g2d.fillRect(12 + x, 19 + y, 1, 1);
+        g2d.fillRect(8 + x, 20 + y, 1, 1);
+        g2d.fillRect(10 + x, 21 + y, 1, 1);
+        g2d.fillRect(44 + x, 22 + y, 1, 1);
+        g2d.fillRect(70 + x, 22 + y, 1, 1);
+        g2d.fillRect(83 + x, 22 + y, 1, 1);
+        g2d.fillRect(117 + x, 22 + y, 1, 1);
+        g2d.fillRect(41 + x, 23 + y, 1, 1);
+        g2d.fillRect(43 + x, 23 + y, 1, 1);
+        g2d.fillRect(91 + x, 23 + y, 1, 1);
+        g2d.fillRect(28 + x, 24 + y, 1, 1);
+        g2d.fillRect(42 + x, 24 + y, 1, 1);
+        g2d.fillRect(122 + x, 24 + y, 1, 1);
+        g2d.fillRect(32 + x, 25 + y, 1, 2);
+        g2d.fillRect(33 + x, 25 + y, 1, 1);
+        g2d.fillRect(93 + x, 25 + y, 1, 1);
+        g2d.fillRect(5 + x, 26 + y, 1, 1);
+        g2d.fillRect(34 + x, 26 + y, 1, 1);
+        g2d.fillRect(82 + x, 26 + y, 1, 1);
+        g2d.fillRect(92 + x, 26 + y, 1, 1);
+        g2d.fillRect(95 + x, 26 + y, 1, 1);
+        g2d.fillRect(97 + x, 26 + y, 1, 1);
+        g2d.fillRect(20 + x, 27 + y, 1, 1);
+        g2d.fillRect(30 + x, 27 + y, 1, 1);
+        g2d.fillRect(33 + x, 27 + y, 1, 1);
+        g2d.fillRect(42 + x, 27 + y, 1, 1);
+        g2d.fillRect(41 + x, 28 + y, 1, 1);
+        g2d.fillRect(26 + x, 29 + y, 1, 1);
+        g2d.fillRect(100 + x, 29 + y, 1, 1);
+        g2d.fillRect(10 + x, 33 + y, 1, 1);
+        g2d.fillRect(84 + x, 34 + y, 1, 1);
+        g2d.fillRect(115 + x, 34 + y, 1, 1);
+        g2d.fillRect(90 + x, 35 + y, 1, 1);
+        g2d.fillRect(71 + x, 36 + y, 1, 1);
+        g2d.fillRect(114 + x, 36 + y, 1, 1);
+        g2d.fillRect(87 + x, 37 + y, 1, 1);
+        g2d.fillRect(104 + x, 37 + y, 1, 1);
+        g2d.fillRect(113 + x, 37 + y, 1, 1);
+        g2d.fillRect(12 + x, 39 + y, 1, 1);
+        g2d.fillRect(37 + x, 39 + y, 1, 1);
+        g2d.fillRect(56 + x, 39 + y, 1, 1);
+        g2d.fillRect(134 + x, 39 + y, 1, 1);
+        g2d.fillRect(73 + x, 40 + y, 1, 1);
+        g2d.fillRect(100 + x, 40 + y, 1, 1);
+        g2d.fillRect(22 + x, 42 + y, 1, 1);
+        g2d.fillRect(114 + x, 44 + y, 1, 1);
+        g2d.fillRect(104 + x, 46 + y, 1, 1);
+        g2d.fillRect(116 + x, 50 + y, 1, 1);
+        g2d.fillRect(115 + x, 51 + y, 1, 1);
+
+
+        g2d.setColor(COLORS.get(ImageUtilities.GREY_5, ImageUtilities.GREY_6));
+        g2d.fillRect(17 + x, 14 + y, 1, 1);
+        g2d.fillRect(29 + x, 14 + y, 1, 1);
+        g2d.fillRect(31 + x, 15 + y, 1, 1);
+        g2d.fillRect(18 + x, 16 + y, 1, 1);
+        g2d.fillRect(101 + x, 16 + y, 1, 1);
+        g2d.fillRect(11 + x, 17 + y, 1, 1);
+        g2d.fillRect(86 + x, 17 + y, 1, 1);
+        g2d.fillRect(122 + x, 21 + y, 1, 1);
+        g2d.fillRect(41 + x, 22 + y, 1, 1);
+        g2d.fillRect(6 + x, 23 + y, 1, 1);
+        g2d.fillRect(77 + x, 23 + y, 1, 1);
+        g2d.fillRect(8 + x, 24 + y, 1, 1);
+        g2d.fillRect(34 + x, 24 + y, 1, 1);
+        g2d.fillRect(48 + x, 24 + y, 1, 1);
+        g2d.fillRect(54 + x, 24 + y, 1, 1);
+        g2d.fillRect(132 + x, 24 + y, 1, 1);
+        g2d.fillRect(16 + x, 26 + y, 1, 1);
+        g2d.fillRect(36 + x, 26 + y, 1, 1);
+        g2d.fillRect(52 + x, 26 + y, 1, 1);
+        g2d.fillRect(130 + x, 26 + y, 1, 1);
+        g2d.fillRect(117 + x, 27 + y, 1, 1);
+        g2d.fillRect(70 + x, 28 + y, 1, 1);
+        g2d.fillRect(47 + x, 29 + y, 1, 1);
+        g2d.fillRect(96 + x, 29 + y, 1, 1);
+        g2d.fillRect(125 + x, 29 + y, 1, 1);
+        g2d.fillRect(15 + x, 30 + y, 1, 1);
+        g2d.fillRect(53 + x, 30 + y, 1, 1);
+        g2d.fillRect(131 + x, 30 + y, 1, 1);
+        g2d.fillRect(19 + x, 31 + y, 1, 1);
+        g2d.fillRect(67 + x, 31 + y, 1, 1);
+        g2d.fillRect(54 + x, 32 + y, 1, 1);
+        g2d.fillRect(132 + x, 32 + y, 1, 1);
+        g2d.fillRect(52 + x, 33 + y, 1, 1);
+        g2d.fillRect(74 + x, 33 + y, 1, 1);
+        g2d.fillRect(105 + x, 33 + y, 1, 1);
+        g2d.fillRect(130 + x, 33 + y, 1, 1);
+        g2d.fillRect(14 + x, 34 + y, 1, 1);
+        g2d.fillRect(50 + x, 38 + y, 1, 1);
+        g2d.fillRect(71 + x, 38 + y, 1, 1);
+        g2d.fillRect(79 + x, 38 + y, 1, 1);
+        g2d.fillRect(128 + x, 38 + y, 1, 1);
+        g2d.fillRect(45 + x, 39 + y, 1, 1);
+        g2d.fillRect(98 + x, 39 + y, 1, 1);
+        g2d.fillRect(123 + x, 39 + y, 1, 1);
+        g2d.fillRect(21 + x, 40 + y, 1, 1);
+        g2d.fillRect(15 + x, 42 + y, 1, 1);
+        g2d.fillRect(47 + x, 42 + y, 1, 1);
+        g2d.fillRect(51 + x, 42 + y, 1, 1);
+        g2d.fillRect(80 + x, 42 + y, 1, 1);
+        g2d.fillRect(97 + x, 42 + y, 1, 1);
+        g2d.fillRect(106 + x, 42 + y, 1, 1);
+        g2d.fillRect(125 + x, 42 + y, 1, 1);
+        g2d.fillRect(129 + x, 42 + y, 1, 1);
+        g2d.fillRect(108 + x, 43 + y, 1, 1);
+        g2d.fillRect(118 + x, 45 + y, 1, 1);
+        g2d.fillRect(100 + x, 47 + y, 1, 1);
+        g2d.fillRect(114 + x, 52 + y, 1, 1);
+
+
+        g2d.setColor(COLORS.get(ImageUtilities.GREY_6));
+        g2d.fillRect(101 + x, 12 + y, 1, 1);
+        g2d.fillRect(14 + x, 15 + y, 1, 1);
+        g2d.fillRect(22 + x, 17 + y, 1, 1);
+        g2d.fillRect(33 + x, 17 + y, 1, 1);
+        g2d.fillRect(84 + x, 18 + y, 1, 1);
+        g2d.fillRect(16 + x, 19 + y, 1, 1);
+        g2d.fillRect(29 + x, 19 + y, 1, 1);
+        g2d.fillRect(11 + x, 20 + y, 1, 1);
+        g2d.fillRect(7 + x, 21 + y, 1, 1);
+        g2d.fillRect(45 + x, 21 + y, 1, 1);
+        g2d.fillRect(17 + x, 22 + y, 1, 1);
+        g2d.fillRect(59 + x, 22 + y, 1, 1);
+        g2d.fillRect(76 + x, 22 + y, 1, 1);
+        g2d.fillRect(97 + x, 22 + y, 1, 1);
+        g2d.fillRect(137 + x, 22 + y, 1, 1);
+        g2d.fillRect(49 + x, 23 + y, 1, 1);
+        g2d.fillRect(60 + x, 23 + y, 1, 1);
+        g2d.fillRect(68 + x, 23 + y, 1, 1);
+        g2d.fillRect(79 + x, 23 + y, 1, 1);
+        g2d.fillRect(138 + x, 23 + y, 1, 1);
+        g2d.fillRect(55 + x, 24 + y, 1, 1);
+        g2d.fillRect(67 + x, 24 + y, 1, 1);
+        g2d.fillRect(71 + x, 24 + y, 2, 1);
+        g2d.fillRect(94 + x, 24 + y, 1, 1);
+        g2d.fillRect(133 + x, 24 + y, 1, 1);
+        g2d.fillRect(27 + x, 25 + y, 1, 1);
+        g2d.fillRect(41 + x, 25 + y, 1, 1);
+        g2d.fillRect(56 + x, 25 + y, 1, 1);
+        g2d.fillRect(134 + x, 25 + y, 1, 1);
+        g2d.fillRect(26 + x, 26 + y, 1, 1);
+        g2d.fillRect(66 + x, 26 + y, 1, 1);
+        g2d.fillRect(74 + x, 26 + y, 1, 1);
+        g2d.fillRect(77 + x, 26 + y, 1, 1);
+        g2d.fillRect(101 + x, 26 + y, 1, 1);
+        g2d.fillRect(48 + x, 27 + y, 1, 1);
+        g2d.fillRect(60 + x, 27 + y, 1, 1);
+        g2d.fillRect(92 + x, 27 + y, 1, 1);
+        g2d.fillRect(94 + x, 27 + y, 1, 1);
+        g2d.fillRect(126 + x, 27 + y, 1, 1);
+        g2d.fillRect(138 + x, 27 + y, 1, 1);
+        g2d.fillRect(121 + x, 28 + y, 1, 1);
+        g2d.fillRect(54 + x, 29 + y, 1, 1);
+        g2d.fillRect(107 + x, 29 + y, 1, 1);
+        g2d.fillRect(132 + x, 29 + y, 1, 1);
+        g2d.fillRect(8 + x, 31 + y, 1, 1);
+        g2d.fillRect(46 + x, 31 + y, 1, 1);
+        g2d.fillRect(56 + x, 31 + y, 1, 1);
+        g2d.fillRect(124 + x, 31 + y, 1, 1);
+        g2d.fillRect(134 + x, 31 + y, 1, 1);
+        g2d.fillRect(5 + x, 32 + y, 1, 1);
+        g2d.fillRect(9 + x, 32 + y, 1, 1);
+        g2d.fillRect(109 + x, 32 + y, 1, 1);
+        g2d.fillRect(99 + x, 33 + y, 1, 1);
+        g2d.fillRect(6 + x, 34 + y, 1, 1);
+        g2d.fillRect(50 + x, 34 + y, 1, 1);
+        g2d.fillRect(128 + x, 34 + y, 1, 1);
+        g2d.fillRect(7 + x, 35 + y, 1, 1);
+        g2d.fillRect(18 + x, 35 + y, 1, 1);
+        g2d.fillRect(38 + x, 35 + y, 1, 1);
+        g2d.fillRect(45 + x, 35 + y, 1, 1);
+        g2d.fillRect(89 + x, 35 + y, 1, 1);
+        g2d.fillRect(123 + x, 35 + y, 1, 1);
+        g2d.fillRect(59 + x, 36 + y, 1, 1);
+        g2d.fillRect(62 + x, 36 + y, 1, 1);
+        g2d.fillRect(88 + x, 36 + y, 1, 1);
+        g2d.fillRect(94 + x, 36 + y, 1, 1);
+        g2d.fillRect(102 + x, 36 + y, 1, 1);
+        g2d.fillRect(119 + x, 36 + y, 1, 1);
+        g2d.fillRect(137 + x, 36 + y, 1, 1);
+        g2d.fillRect(13 + x, 37 + y, 1, 1);
+        g2d.fillRect(55 + x, 37 + y, 1, 1);
+        g2d.fillRect(98 + x, 37 + y, 1, 1);
+        g2d.fillRect(103 + x, 37 + y, 1, 1);
+        g2d.fillRect(133 + x, 37 + y, 1, 1);
+        g2d.fillRect(33 + x, 38 + y, 1, 1);
+        g2d.fillRect(89 + x, 38 + y, 1, 1);
+        g2d.fillRect(74 + x, 39 + y, 1, 1);
+        g2d.fillRect(9 + x, 40 + y, 1, 1);
+        g2d.fillRect(55 + x, 40 + y, 1, 1);
+        g2d.fillRect(133 + x, 40 + y, 1, 1);
+        g2d.fillRect(72 + x, 41 + y, 1, 1);
+        g2d.fillRect(85 + x, 41 + y, 1, 1);
+        g2d.fillRect(99 + x, 41 + y, 1, 1);
+        g2d.fillRect(111 + x, 41 + y, 1, 1);
+        g2d.fillRect(8 + x, 42 + y, 1, 1);
+        g2d.fillRect(11 + x, 42 + y, 1, 1);
+        g2d.fillRect(64 + x, 42 + y, 1, 1);
+        g2d.fillRect(70 + x, 42 + y, 1, 1);
+        g2d.fillRect(83 + x, 42 + y, 1, 1);
+        g2d.fillRect(94 + x, 42 + y, 1, 1);
+        g2d.fillRect(104 + x, 43 + y, 1, 1);
+        g2d.fillRect(112 + x, 49 + y, 1, 1);
+        g2d.fillRect(111 + x, 50 + y, 1, 1);
+        g2d.fillRect(101 + x, 52 + y, 1, 1);
+        g2d.fillRect(102 + x, 53 + y, 1, 1);
+        g2d.fillRect(105 + x, 54 + y, 1, 1);
+        g2d.fillRect(109 + x, 54 + y, 1, 1);
+    }
+
+    public void attributesSetUpDecreaseShiftX()
+    {
+        shiftX--;
+    }
+
+    public void attributesSetUpIncreaseShiftX()
+    {
+        shiftX++;
+    }
+
+    public int getShiftX()
+    {
+        return shiftX;
+    }
+
+    public void attributesSetUpDecreaseShiftY()
+    {
+        shiftY--;
+    }
+
+    public void attributesSetUpIncreaseShiftY()
+    {
+        shiftY++;
+    }
+
+    public int getShiftY()
+    {
+        return shiftY;
+    }
+
+    int shiftX = 0;
+    int shiftY = 0;
+}
